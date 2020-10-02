@@ -347,7 +347,7 @@ class MP(object):
 
             return response
 
-        def post(self, uri, data=None, params=None, devide_id=None, content_type=MIME_JSON):
+        def post(self, uri, data=None, params=None, device_id=None, content_type=MIME_JSON):
             if data is not None and content_type == self.MIME_JSON:
                 data = JSONEncoder().encode(data)
 
