@@ -263,7 +263,7 @@ class MP(object):
         result = self.__rest_client.get(uri, params)
         return result
 
-    def post(self, uri, data, params=None):
+    def post(self, uri, data, params=None, device_id=None):
         """
         Generic resource post
         @param uri
@@ -276,7 +276,7 @@ class MP(object):
 
         access_token = self.get_access_token()
         params["access_token"] = access_token
-        result = self.__rest_client.post(uri, data, params)
+        result = self.__rest_client.post(uri, data, params, device_id)
         return result
 
     def put(self, uri, data, params=None):
@@ -344,12 +344,12 @@ class MP(object):
 
             return response
 
-        def post(self, uri, data=None, params=None, content_type=MIME_JSON):
+        def post(self, uri, data=None, params=None, devide_id=None, content_type=MIME_JSON):
             if data is not None and content_type == self.MIME_JSON:
                 data = JSONEncoder().encode(data)
 
             s = self.get_session()
-            api_result = s.post(self.__API_BASE_URL+uri, params=params, data=data, headers={'User-Agent':self.USER_AGENT, 'Content-type':content_type, 'Accept':self.MIME_JSON})
+            api_result = s.post(self.__API_BASE_URL+uri, params=params, data=data, headers={'User-Agent':self.USER_AGENT, 'Content-type':content_type, 'Accept':self.MIME_JSON, 'X-meli-session-id': device_id})
 
             response = {
                 "status": api_result.status_code,
