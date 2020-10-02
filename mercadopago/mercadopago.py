@@ -273,10 +273,13 @@ class MP(object):
         """
         if params is None:
             params = {}
+            
+        if not device_id:
+            device_id = ""
 
         access_token = self.get_access_token()
         params["access_token"] = access_token
-        result = self.__rest_client.post(uri, data, params, device_id)
+        result = self.__rest_client.post(uri, data, params, device_id=device_id)
         return result
 
     def put(self, uri, data, params=None):
@@ -290,7 +293,16 @@ class MP(object):
         if params is None:
             params = {}
 
-        access_token = self.get_access_token()
+        access_token = self.get_
+        
+        
+        
+        
+        
+        
+        
+        
+        ()
         params["access_token"] = access_token
         result = self.__rest_client.put(uri, data, params)
         return result
