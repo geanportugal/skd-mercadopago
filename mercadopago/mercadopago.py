@@ -293,16 +293,7 @@ class MP(object):
         if params is None:
             params = {}
 
-        access_token = self.get_
-        
-        
-        
-        
-        
-        
-        
-        
-        ()
+        access_token = self.get_access_token()
         params["access_token"] = access_token
         result = self.__rest_client.put(uri, data, params)
         return result
